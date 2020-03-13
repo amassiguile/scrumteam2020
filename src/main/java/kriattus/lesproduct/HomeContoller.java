@@ -12,4 +12,11 @@ public class HomeContoller {
         model.addObject("message", "Hello Yose");
         return model;
     }
+
+    @GetMapping("/contactme")
+    public ModelAndView contactme(){
+        ModelAndView model = new ModelAndView("contactme");
+        return model;
+    }
+
 }
