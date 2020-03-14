@@ -19,4 +19,10 @@ public class HomeContoller {
         return model;
     }
 
+    @GetMapping("/astroport")
+    public ModelAndView astroport(){
+        ModelAndView model = new ModelAndView("astroport");
+        return model;
+    }
+
 }
