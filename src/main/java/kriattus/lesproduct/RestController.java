@@ -19,7 +19,7 @@ public class RestController {
         map.put("alive", true);
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
-    @GetMapping("/index")
+    @GetMapping("/primeFactors")
     public HashMap<String, Object>  powerOfTwo(int num){
         String decomposition=null;
         int aux=1;
