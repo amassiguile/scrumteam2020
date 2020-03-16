@@ -20,7 +20,7 @@ public class RestController {
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
     @GetMapping("/primeFactors")
-    public HashMap<String, Object>  powerOfTwo(Integer num){
+    public HashMap<String, String>  powerOfTwo(Integer num){
         String decomposition=null;
         Integer aux=1;
         decomposition = decomposition+"[";
@@ -38,8 +38,8 @@ public class RestController {
             }
         }
         decomposition = decomposition+"]";
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("number", num);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("number", ""+num);
         map.put("decomposition", decomposition);
         return map;
     }
