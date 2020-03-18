@@ -8,7 +8,7 @@
 <body>
 
 <form >
-
+<!--gate that content each ship-->
     <div for="gate-1" id="gate-1">
         <input type="text" id="ship-1" name="ship-1"><br><br>
     </div>
@@ -21,7 +21,6 @@
         <input type="text" id="ship-3" name="ship-1"><br><br>
     </div>
 
-
     <!-- <label for="gate-2">gate-2:</label>
      <input type="text" id="gate-2" name="gate-2"><br><br>
      <label for="ship-2">ship-2</label>
@@ -32,9 +31,22 @@
      <label for="ship-3">ship-3</label>
      <input type="text" id="ship-3" name="ship-3"><br><br>
      -->
+
+
+
     <input type="submit" value="Submit" onclick = "gatesController()">
 
+
+    <!--to show each ship that is docked-->
+    <label for="ship">Ship</label>
+    <input type="text" id="ship" name="ship">
+    <input type="button" value="Dock" onclick= "showDockedShip()">
+
 </form>
+
+
+
+
 
 
 <script type="text/javascript">
@@ -47,8 +59,12 @@
         document.getElementById("ship-1").value.innerHTML = gate1;
         document.getElementById("ship-2").value.innerHTML = gate2;
         document.getElementById("ship-3").value.innerHTML = gate2;
+    }
 
-
+    function showDockedShip(){
+        var ship = document.getElementById("ship").value;
+        alert(ship);
+        document.getElementById("gate-1").innerHTML = ship;
     }
 </script>
 
