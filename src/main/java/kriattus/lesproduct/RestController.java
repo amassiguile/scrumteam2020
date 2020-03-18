@@ -31,10 +31,10 @@ public class RestController {
             aux=aux*2;
 
             if (j==1){
-                decomposition = decomposition+"2";
+                decomposition = decomposition+2;
             }else {
 
-            decomposition = decomposition+",2";
+            decomposition = decomposition+2;
             }
             if (aux>=num){
                 break;
