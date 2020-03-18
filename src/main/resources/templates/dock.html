@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dock</title>
+</head>
+<body>
+<!--to show each ship that is docked-->
+<label for="ship">Ship</label>
+<input type="text" id="ship" name="ship">
+<input type="button" value="Dock" onclick= "showDockedShip()">
+
+
+<script type="text/javascript">
+    function showDockedShip(){
+        var ship = document.getElementById("ship").value;
+        alert(ship);
+        document.getElementById("gate-1").innerHTML = ship;
+    }
+</script>
+
+</body>
+</html>
