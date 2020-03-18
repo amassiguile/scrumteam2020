@@ -6,15 +6,39 @@
     <p id="astroport-name">Astroport Management System</p>
 </head>
 <body>
-    <div class="identificadores">
-        <div id="gate-1">Gate</div>
-        <div id="gate-2">Gate Gate</div>
-        <div id="gate-3">Gate Gate Gate</div>
 
-        <div id="ship-1">Ship</div>
-        <div id="ship-2">Ship Ship</div>
-        <div id="ship-3">Ship Ship Ship</div>
-    </div>
+<form >
+    <label for="gate-1">gate-1:</label>
+    <input type="text" id="gate-1" name="gate1"><br><br>
+    <label for="ship-1">ship-1</label>
+    <input type="text" id="ship-1" name="ship-1"><br><br>
+
+    <label for="gate-2">gate-2:</label>
+    <input type="text" id="gate-2" name="gate-2"><br><br>
+    <label for="ship-2">ship-2</label>
+    <input type="text" id="ship-2" name="ship-2"><br><br>
+
+    <label for="gate-3">gate-3:</label>
+    <input type="text" id="gate-3" name="gate-3"><br><br>
+    <label for="ship-3">ship-3</label>
+    <input type="text" id="ship-3" name="ship-3"><br><br>
+
+    <input type="submit" value="Submit" onclick = "gatesController()">
+
+</form>
+
+
+<script type="text/javascript">
+    function gatesController(){
+
+        var gate1 = document.getElementById("gate-1").value;
+        var gate2 = document.getElementById("gate-2").value;
+        var gate3 = document.getElementById("gate-3").value;
+
+        document.getElementById("ship-1").value.innerHTML = gate1;
+        document.getElementById("ship-2").value.innerHTML = gate2;
+        document.getElementById("ship-3").value.innerHTML = gate2;
+    }
+</script>
 
 </body>
-</html>
