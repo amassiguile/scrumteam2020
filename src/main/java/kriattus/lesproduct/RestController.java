@@ -34,7 +34,7 @@ public class RestController {
                 decomposition = decomposition+2;
             }else {
 
-            decomposition = decomposition+2;
+            decomposition = decomposition+","+2;
             }
             if (aux>=num){
                 break;
