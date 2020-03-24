@@ -41,7 +41,12 @@ public class RestController {
             }
 
             map.put("number",number);
+            if (num>1000000){
+                map.put("error","too big number (>1e6)");
+            }
+            else{
             map.put("decomposition", primeFactores(num));
+            }
         }
         return map;
 
