@@ -39,7 +39,7 @@ public class RestController {
                 break;
             }
         }*/
-        map.put("number",number);
+        map.put("number","hello");
         map.put("error","not a number");
         return map;
 
