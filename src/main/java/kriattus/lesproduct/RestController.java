@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -30,7 +27,7 @@ public class RestController {
             map.put("number",number);
             map.put("error","not a number");
             return map;
-        }else{
+        }else {
             int num = Integer.parseInt(number);
             ArrayList<Integer> str = new ArrayList<Integer>();
 
@@ -44,10 +41,25 @@ public class RestController {
             }
 
             map.put("number",number);
-            map.put("decomposition", str);
+            map.put("decomposition", primeFactores(num));
         }
         return map;
 
     }
+    public static List<Integer> primeFactores(long number) {
+        List<Integer> primefactors = new ArrayList<>();
+     long copyOfInput = number;
+        for (int i = 2; i <= copyOfInput; i++) {
+            if (copyOfInput % i == 0) {
+                primefactors.add(i); // prime factor
 
-}
+                copyOfInput /= i;
+                i--;
+            }
+        }
+        return primefactors;
+    }
+
+
+
+            }
