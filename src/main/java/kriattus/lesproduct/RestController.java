@@ -20,12 +20,13 @@ public class RestController {
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
     @GetMapping("/primeFactors")
-    public  HashMap<String, Object>  primeFactors(String number){
+    public  String primeFactors(String number){
 
 
         int num=Integer.parseInt(number);
 
-        String decomposition="[";
+        String decomposition="{ ";
+        decomposition = decomposition+'"'+"number"+'"'+" :"+number+","+'"'+"decomposition"+'"'+" :"+"[";
         Integer aux=1;
         for (int j = 1; j < num; j++) {
             aux=aux*2;
@@ -40,10 +41,15 @@ public class RestController {
                 break;
             }
         }
-         decomposition+="]";
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("number", num);
-        map.put("decomposition", decomposition);
-        return map;
+         decomposition+="]"+"}";
+       // HashMap<Object, Object> map = new HashMap<>();
+        //Map<String, Object> map = new HashMap<String, Object>();
+        //map.put("number", num);
+        //map.put("decomposition",""+decomposition);
+
+        //return map;
+        //return new ResponseEntity<Object>(map, HttpStatus.OK);
+        return decomposition;
     }
+
 }
