@@ -2,13 +2,18 @@ package kriattus.lesproduct;
 
 
 
+import com.google.gson.Gson;
+import jdk.nashorn.internal.parser.JSONParser;
 import net.minidev.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -20,36 +25,24 @@ public class RestController {
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
     @GetMapping("/primeFactors")
-    public  String primeFactors(String number){
+    public ResponseEntity<Object>  primeFactors(String number){
 
 
         int num=Integer.parseInt(number);
-
-        String decomposition="{ ";
-        decomposition = decomposition+'"'+"number"+'"'+" :"+number+","+'"'+"decomposition"+'"'+" :"+"[";
+        ArrayList<Integer> str = new ArrayList<Integer>();
+        Map<String, Object> map = new HashMap<String, Object>();
         Integer aux=1;
         for (int j = 1; j < num; j++) {
             aux=aux*2;
-
-            if (j==1){
-                decomposition = decomposition+2;
-            }else {
-
-            decomposition = decomposition+","+2;
-            }
+                str.add(2);
             if (aux>=num){
                 break;
             }
         }
-         decomposition+="]"+"}";
-       // HashMap<Object, Object> map = new HashMap<>();
-        //Map<String, Object> map = new HashMap<String, Object>();
-        //map.put("number", num);
-        //map.put("decomposition",""+decomposition);
+        map.put("number",num);
+        map.put("decomposition",str);
+        return new ResponseEntity<Object>(map, HttpStatus.OK);
 
-        //return map;
-        //return new ResponseEntity<Object>(map, HttpStatus.OK);
-        return decomposition;
     }
 
 }
