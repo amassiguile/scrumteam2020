@@ -28,19 +28,19 @@ public class RestController {
     public HashMap<String, Object> primeFactors(String number){
 
 
-        int num=Integer.parseInt(number);
-        ArrayList<Integer> str = new ArrayList<Integer>();
+        //int num=Integer.parseInt(number);
+        //ArrayList<Integer> str = new ArrayList<Integer>();
         HashMap<String, Object> map = new HashMap<String, Object>();
-        Integer aux=1;
-        for (int j = 1; j < num; j++) {
+        //Integer aux=1;
+        /*for (int j = 1; j < num; j++) {
             aux=aux*2;
                 str.add(2);
             if (aux>=num){
                 break;
             }
-        }
-        map.put("number",num);
-        map.put("decomposition",str);
+        }*/
+        map.put("number",number);
+        map.put("error","not a number");
         return map;
 
     }
