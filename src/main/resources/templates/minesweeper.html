@@ -59,11 +59,11 @@
     function generateGrid() {
         //generate 8 by 8 grid
         grid.innerHTML="";
-        for (var i=1; i<=8; i++) {
+        for (var i=0; i<8; i++) {
             row = grid.insertRow(i);
-            for (var j=1; j<=8; j++) {
+            for (var j=0; j<8; j++) {
                 cell = row.insertCell(j);
-                cell.id = "cell-"+i+"x"+j;
+                cell.id = "cell-"+(i+1)+"x"+(j+1);
                 /*cell.onclick = function() { clickCell(this); };
                 var mine = document.createAttribute("data-mine");
                 mine.value = "false";
