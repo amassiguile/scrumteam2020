@@ -15,14 +15,17 @@ public class HomeContoller {
 
     @GetMapping("/contactme")
     public ModelAndView contactme(){
-        ModelAndView model = new ModelAndView("contactme");
-        return model;
+        return new ModelAndView("contactme");
     }
 
     @GetMapping("/astroport")
     public ModelAndView astroport(){
-        ModelAndView model = new ModelAndView("astroport");
-        return model;
+        return new ModelAndView("astroport");
+    }
+
+    @GetMapping("/minesweeper")
+    public ModelAndView minesweeper(){
+        return new ModelAndView("minesweeper");
     }
 
 
