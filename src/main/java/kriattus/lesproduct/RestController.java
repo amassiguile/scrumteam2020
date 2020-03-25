@@ -13,13 +13,20 @@ import java.util.*;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
-
+//---------------------------------------start---------------------------------------------------------------------------------
     @GetMapping("/ping")
     public ResponseEntity<Object> ping(){
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("alive", true);
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
+    //@GetMapping("/")
+    public ResponseEntity<Object> share(){
+        Map<String, Object> map = new HashMap<String, Object>();
+        return new ResponseEntity<Object>(map, HttpStatus.OK);
+    }
+
+    //------------------------------------------- prime factors----------------------------------------------------------------------------------------------------------
     @GetMapping("/primeFactors")
     public ResponseEntity<Object> primeFactors(String number){
        HashMap <String,Object> map = new HashMap<String,Object>();
@@ -88,7 +95,12 @@ public class RestController {
         }
         return primefactors;
     }
+//----------------------------------------fire---------------------------------------------------------------------
+    @GetMapping("/fire/geek")
+    public ResponseEntity<Object> geek(String geeks){
+        HashMap <String,Object> map = new HashMap<String,Object>();
+        return new ResponseEntity<Object>(map, HttpStatus.OK);
+    }
 
 
-
-            }
+}
