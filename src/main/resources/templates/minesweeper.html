@@ -48,15 +48,15 @@
 <H1 id="title">Minesweeper</H1>
 <table id=grid>
 </table>
-<BUTTON onclick="generateGrid();">Reset Grid</BUTTON>
+<BUTTON onclick="load();">Reset Grid</BUTTON>
 
 <script>
     //Sarmento is building this. Follow me
     var grid = document.getElementById("grid");
     var testMode = false; //Turn this variable to true to see where the mines are
-    generateGrid();
+    load();
 
-    function generateGrid() {
+    function load() {
         //generate 8 by 8 grid
         grid.innerHTML="";
         for (var i=0; i<8; i++) {
@@ -64,13 +64,29 @@
             for (var j=0; j<8; j++) {
                 cell = row.insertCell(j);
                 cell.id = "cell-"+(i+1)+"x"+(j+1);
-                /*cell.onclick = function() { clickCell(this); };
+
+                cell.onclick = function() { clickCell(this); };
+
                 var mine = document.createAttribute("data-mine");
-                mine.value = "false";
-                cell.setAttributeNode(mine);*/
+                if(i==3 && j==6)
+                    mine.value = "bomb";
+                else
+                    mine.value = "empty";
+                cell.setAttributeNode(mine);
             }
         }
     }
+
+    function clickCell(cell) {
+        //Check if the end-user clicked on a mine
+        if (cell.getAttribute("data-mine") === "bomb") {
+            cell.className = "lost";
+        } else {
+            cell.className="clicked";
+        }
+
+    }
+
 </script>
 
 </body>
