@@ -4,101 +4,75 @@
     <meta charset="UTF-8">
     <title>Minesweeper</title>
     <style>
-        table tr td{
-            background-color: antiquewhite;
-            width: 10%;
+        BODY {
+            background: black;
+            color: #DDDDDD;
+            font-family: courier new;
+            text-align: center;
         }
 
-        table tr td:hover{
-            background-color: aqua;
+        H1 {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: normal;
         }
+        #grid {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #grid TR TD{
+            border:1px solid white;
+            background: #999999;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+        }
+
+        #grid TR TD.clicked {
+            background: #333333;
+        }
+
+        #grid TR TD.mine {
+            background: #FF0000;
+        }
+
+        BUTTON {
+            margin: 12px;
+        }
+
     </style>
 </head>
-<body>
-<h2 id="title">Minesweeper</h2>
 
- <table>
-     <tr id="row-1">
-         <td id="cell-1x1">1</td>
-         <td id="cell-1x2">2</td>
-         <td id="cell-1x3">3</td>
-         <td id="cell-1x4" >4</td>
-         <td id="cell-1x5">5</td>
-         <td id="cell-1x6">6</td>
-         <td id="cell-1x7">7</td>
-         <td id="cell-1x8">8</td>
-     <tr>
-     <tr id="row-2">
-     <td id="cell-2x1">1</td>
-     <td id="cell-2x2">2</td>
-     <td id="cell-2x3">3</td>
-     <td id="cell-2x4" >4</td>
-     <td id="cell-2x5">5</td>
-     <td id="cell-2x6">6</td>
-     <td id="cell-2x7">7</td>
-     <td id="cell-2x8">8</td>
-     <tr>
-     <tr id="row-3">
-     <td id="cell-3x1">1</td>
-     <td id="cell-3x2">2</td>
-     <td id="cell-3x3">3</td>
-     <td id="cell-3x4" >4</td>
-     <td id="cell-3x5">5</td>
-     <td id="cell-3x6">6</td>
-     <td id="cell-3x7">7</td>
-     <td id="cell-3x8">8</td>
-     <tr>
-     <tr id="row-4">
-     <td id="cell-4x1">1</td>
-     <td id="cell-4x2">2</td>
-     <td id="cell-4x3">3</td>
-     <td id="cell-4x4" >4</td>
-     <td id="cell-4x5">5</td>
-     <td id="cell-4x6">6</td>
-     <td id="cell-4x7">7</td>
-     <td id="cell-4x8">8</td>
-     <tr>
-     <tr id="row-5">
-     <td id="cell-5x1">1</td>
-     <td id="cell-5x2">2</td>
-     <td id="cell-5x3">3</td>
-     <td id="cell-5x4" >4</td>
-     <td id="cell-5x5">5</td>
-     <td id="cell-5x6">6</td>
-     <td id="cell-5x7">7</td>
-     <td id="cell-5x8">8</td>
-     <tr>
-     <tr id="row-6">
-     <td id="cell-6x1">1</td>
-     <td id="cell-6x2">2</td>
-     <td id="cell-6x3">3</td>
-     <td id="cell-6x4" >4</td>
-     <td id="cell-6x5">5</td>
-     <td id="cell-6x6">6</td>
-     <td id="cell-6x7">7</td>
-     <td id="cell-6x8">8</td>
-     <tr>
-     <tr id="row-7">
-         <td id="cell-7x1">1</td>
-         <td id="cell-7x2">2</td>
-         <td id="cell-7x3">3</td>
-         <td id="cell-7x4" >4</td>
-         <td id="cell-7x5">5</td>
-         <td id="cell-7x6">6</td>
-         <td id="cell-7x7">7</td>
-         <td id="cell-7x8">8</td>
-     <tr>
-     <tr id="row-8">
-     <td id="cell-8x1">1</td>
-     <td id="cell-8x2">2</td>
-     <td id="cell-8x3">3</td>
-     <td id="cell-8x4" >4</td>
-     <td id="cell-8x5">5</td>
-     <td id="cell-8x6">6</td>
-     <td id="cell-8x7">7</td>
-     <td id="cell-8x8">8</td>
-     <tr>
- </table>
+<body>
+<H1 id="title">Minesweeper</H1>
+<table id=grid>
+</table>
+<BUTTON onclick="generateGrid();">Reset Grid</BUTTON>
+
+<script>
+    //Sarmento is building this. Follow me
+    var grid = document.getElementById("grid");
+    var testMode = false; //Turn this variable to true to see where the mines are
+    generateGrid();
+
+    function generateGrid() {
+        //generate 8 by 8 grid
+        grid.innerHTML="";
+        for (var i=0; i<8; i++) {
+            row = grid.insertRow(i);
+            for (var j=0; j<8; j++) {
+                cell = row.insertCell(j);
+                cell.id = "cell-"+i+"x"+j;
+                /*cell.onclick = function() { clickCell(this); };
+                var mine = document.createAttribute("data-mine");
+                mine.value = "false";
+                cell.setAttributeNode(mine);*/
+            }
+        }
+    }
+</script>
 
 </body>
+
 </html>
