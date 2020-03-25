@@ -42,6 +42,38 @@ public class RestController {
         return list;
 
     }
+
+    public HashMap<String, Object> primeFactors(String []number){
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        String text = number[0];
+        if (text.matches(".*[a-z].*")){
+            map.put("number",number);
+            map.put("error","not a number");
+            return map;
+        }else {
+            int num = Integer.parseInt(number[0]);
+            ArrayList<Integer> str = new ArrayList<Integer>();
+
+            Integer aux = 1;
+            for (int j = 1; j < num; j++) {
+                aux = aux * 2;
+                str.add(2);
+                if (aux >= num) {
+                    break;
+                }
+            }
+
+            map.put("number",number);
+            if (num>1000000){
+                map.put("error","too big number (>1e6)");
+            }
+            else{
+                map.put("decomposition", primeFactores(num));
+            }
+        }
+        return map;
+
+    }
     public static List<Integer> primeFactores(long number) {
         List<Integer> primefactors = new ArrayList<>();
      long copyOfInput = number;
