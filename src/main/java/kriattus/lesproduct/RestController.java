@@ -20,11 +20,6 @@ public class RestController {
         map.put("alive", true);
         return new ResponseEntity<Object>(map, HttpStatus.OK);
     }
-    //@GetMapping("/")
-    public ResponseEntity<Object> share(){
-        Map<String, Object> map = new HashMap<String, Object>();
-        return new ResponseEntity<Object>(map, HttpStatus.OK);
-    }
 
     //------------------------------------------- prime factors----------------------------------------------------------------------------------------------------------
     @GetMapping("/primeFactors")
