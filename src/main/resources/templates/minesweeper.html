@@ -82,8 +82,7 @@
         //Check if the end-user clicked on a mine
             cell.className = "lost";
 
-            if (cell.getAttribute("data-mine") === "empty")
-            cell.pseudoClass="safe";
+            //if (cell.getAttribute("data-mine") === "empty")
 
             var mineCount=0;
             var cellRow = cell.parentNode.rowIndex;
@@ -96,6 +95,9 @@
                 }
             }
                 cell.innerHTML=mineCount;
+
+        if (cell.getAttribute("data-mine") === "empty" && mineCount>=0)
+            cell.className ="safe";
         }
 
 </script>
