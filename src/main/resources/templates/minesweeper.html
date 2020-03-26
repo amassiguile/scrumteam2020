@@ -70,7 +70,7 @@
                 var mine = document.createAttribute("data-mine");
                 mine.value = "empty";
 
-                if(j==4 && i==2)
+                if( (j==5 && i==2) || (i==3 && j==4))
                     mine.value = "bomb";
 
                 cell.setAttributeNode(mine);
@@ -83,8 +83,8 @@
         //if (cell.getAttribute("data-mine") === "bomb") {
             cell.className = "lost";
        // } else {
-            if (cell.getAttribute("data-mine") === "empty")
-            cell.className="safe";
+            //if (cell.getAttribute("data-mine") === "empty")
+            //cell.className="safe";
 
             var mineCount=0;
             var cellRow = cell.parentNode.rowIndex;
