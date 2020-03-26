@@ -80,8 +80,10 @@
 
     function clickCell(cell) {
         //Check if the end-user clicked on a mine
-            cell.className = "lost";
-
+            //cell.className = "lost";
+            var msg = document.createAttribute("data-msg");
+            msg.value = "lost";
+            cell.setAttribute(msg);
             //if (cell.getAttribute("data-mine") === "empty")
 
             var mineCount=0;
