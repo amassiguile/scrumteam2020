@@ -68,10 +68,11 @@
                 cell.onclick = function() { clickCell(this); };
 
                 var mine = document.createAttribute("data-mine");
-                //if(i==3 && j==6)
+                mine.value = "empty";
+
+                if(j==4 && i==2)
                     mine.value = "bomb";
-                //else
-                  //  mine.value = "empty";
+
                 cell.setAttributeNode(mine);
             }
         }
@@ -83,6 +84,20 @@
             cell.className = "lost";
         } else {
             cell.className="clicked";
+            cell.text = "safe";
+
+            var mineCount=0;
+            var cellRow = cell.parentNode.rowIndex;
+            var cellCol = cell.cellIndex;
+            //alert(cellRow + " " + cellCol);
+            for (var i=Math.max(cellRow-1,0); i<=Math.min(cellRow+1,7); i++) {
+                for(var j=Math.max(cellCol-1,0); j<=Math.min(cellCol+1,7); j++) {
+                    if (grid.rows[i].cells[j].getAttribute("data-mine")=="bomb")
+                        mineCount++;
+                }
+            }
+            //if(mineCount>0)
+                cell.innerHTML=mineCount;
         }
 
     }
