@@ -83,8 +83,7 @@
         if (cell.getAttribute("data-mine") === "bomb") {
             cell.className = "lost";
         } else {
-            cell.className="clicked";
-            cell.text = "safe";
+            cell.className="safe";
 
             var mineCount=0;
             var cellRow = cell.parentNode.rowIndex;
