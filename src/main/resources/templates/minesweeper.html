@@ -74,16 +74,15 @@
                     mine.value = "bomb";
 
                 cell.setAttributeNode(mine);
-                cell.className = "lost";
             }
         }
     }
 
     function clickCell(cell) {
         //Check if the end-user clicked on a mine
-        if (cell.getAttribute("data-mine") === "empty") {
-            //cell.className = "lost";
-        //} else {
+        if (cell.getAttribute("data-mine") === "bomb") {
+            cell.className = "lost";
+        } else {
             cell.className="safe";
 
             var mineCount=0;
@@ -96,7 +95,6 @@
                         mineCount++;
                 }
             }
-            //if(mineCount>0)
                 cell.innerHTML=mineCount;
         }
 
