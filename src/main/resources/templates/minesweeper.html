@@ -69,10 +69,14 @@
 
                 var mine = document.createAttribute("data-mine");
                 mine.value = "empty";
+
+                if((i==3 && j==4)||(i==2 && j==5))
+                    mine.value = "bomb";
+
                 cell.setAttributeNode(mine);
             }
         }
-        addMines();
+        //addMines();
     }
 
     function addMines() {
@@ -88,9 +92,10 @@
 
     function clickCell(cell) {
         //Check if the end-user clicked on a mine
+        if (cell.getAttribute("data-mine") === "bomb")
             cell.className = "lost";
 
-            if (cell.getAttribute("data-mine") === "empty") {
+          else  if (cell.getAttribute("data-mine") === "empty") {
                 cell.className = "safe";
 
                 var mineCount = 0;
