@@ -17,9 +17,9 @@
         <input type="text" id="number" name="number"><br><br>
     </div>
     <BUTTON id="go" onclick="primeFactorsController();">Go</BUTTON>
-`   <div id="result">
-        <p>
-
+`   <div id="fresult">
+        <p >
+            <input type="text" id="result" name="decomposition"><br><br>
         </p>
     </div>
 
@@ -33,14 +33,13 @@
         for (var i = 2; i <= copyOfInput; i++) {
             if (copyOfInput % i == 0) {
                 primefactors.push(i); // prime factor
-
                 copyOfInput /= i;
                 i--;
             }
         }
         var result = number+' = '+primefactors.join(' x ')
         //document.getElementById("result").innerHTML=result;
-        return  document.getElementById("result").innerHTML=result;
+        return  document.getElementById("result").value=result;
 
     }
 </script>
