@@ -7,38 +7,31 @@
 </head>
 <body>
 
-<form >
-<!--gate that content each ship-->
+<!--<form >
+    --gate that content each ship-->
     <div for="gate-1" id="gate-1">
-        <input type="text" id="ship-1" name="ship-1"><br><br>
-    </div>
+        <label ><h2>Ship</h2></label>
+        <label id="ship-1"></label>
+    </div><br>
 
     <div for="gate-2" id="gate-2">
-        <input type="text" id="ship-2" name="ship-1"><br><br>
-    </div>
+        <label id="ship-2"></label>
+    </div><br>
 
     <div for="gate-3" id="gate-3">
-        <input type="text" id="ship-3" name="ship-1"><br><br>
+        <label id="ship-3"></label>
     </div>
 
-    <!-- <label for="gate-2">gate-2:</label>
-     <input type="text" id="gate-2" name="gate-2"><br><br>
-     <label for="ship-2">ship-2</label>
-     <input type="text" id="ship-2" name="ship-2"><br><br>
+    <!--<input type="submit" value="Submit" onclick = "gatesController()">-->
 
-     <label for="gate-3">gate-3:</label>
-     <input type="text" id="gate-3" name="gate-3"><br><br>
-     <label for="ship-3">ship-3</label>
-     <input type="text" id="ship-3" name="ship-3"><br><br>
-     -->
+    <label>Ship</label>
+    <input type="text" id="ship">
+    <button id="dock" onclick="showDockedShip()">dock</button>
 
-    <input type="submit" value="Submit" onclick = "gatesController()">
-
-
-</form>
+<!--</form>-->
 
 <script type="text/javascript">
-    function gatesController(){
+    /*function gatesController(){
 
         var gate1 = document.getElementById("gate-1").value;
         var gate2 = document.getElementById("gate-2").value;
@@ -47,12 +40,12 @@
         document.getElementById("ship-1").value.innerHTML = gate1;
         document.getElementById("ship-2").value.innerHTML = gate2;
         document.getElementById("ship-3").value.innerHTML = gate2;
-    }
+    }*/
 
     function showDockedShip(){
         var ship = document.getElementById("ship").value;
-        alert(ship);
-        document.getElementById("gate-1").innerHTML = ship;
+        document.getElementById("ship-1").innerHTML = ship;
+
     }
 </script>
 
