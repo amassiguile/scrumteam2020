@@ -93,9 +93,9 @@
     function clickCell(cell) {
         //Check if the end-user clicked on a mine
         //if (cell.getAttribute("data-mine") === "bomb")
-            cell.className = "lost";
+        cell.className = "lost";
 
-          //else  if (cell.getAttribute("data-mine") === "empty") {
+        if (cell.getAttribute("data-mine") === "empty") {
             //    cell.className = "safe";
 
                 var mineCount = 0;
