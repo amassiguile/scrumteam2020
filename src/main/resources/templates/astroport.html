@@ -64,7 +64,7 @@
 
     <div id="docker"><br>
         <label>Ship</label>
-        <input type="text" id="ship">
+        <input type="text" id="ship" oninput="resetTohidden()">
         <button id="dock" onclick="showDockedShip()">dock</button>
     </div> </div><br><br><br>
 
@@ -82,6 +82,10 @@
         document.getElementById("info").className = "";
         document.getElementById("gate-1").className = "occupied";
     }
+
+    function resetTohidden() {
+        document.getElementById("info").className = "hidden";
+    };
 
 
 
