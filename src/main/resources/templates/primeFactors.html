@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form >
+
+    <div  id="title">
+        <H1>Prime Factors</H1>
+    </div>
+    <div  id="invitation">
+        <H3>Enter a number</H3>
+    </div>
+    <div >
+        <input type="text" id="number" name="number"><br><br>
+    </div>
+
+    <BUTTON id="go" onclick="primeFactorsController();">Go</BUTTON>
+
+
+</form>
+</body>
+<script type="text/javascript">
+    function primeFactorsController(){
+        var number =document.getElementById("number").value;
+        var primefactors=[];
+        var copyOfInput = number;
+        for (var i = 2; i <= copyOfInput; i++) {
+            if (copyOfInput % i == 0) {
+                primefactors.push(i); // prime factor
+
+                copyOfInput /= i;
+                i--;
+            }
+        }
+
+        alert(primefactors);
+        return primefactors;
+    }
+</script>
+
+
+</html>

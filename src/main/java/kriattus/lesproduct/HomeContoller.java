@@ -28,6 +28,9 @@ public class HomeContoller {
         return new ModelAndView("minesweeper");
     }
 
-
+    @GetMapping("/ /primeFactors/ui")
+    public ModelAndView primeFactors(){
+        return new ModelAndView("primeFactors");
+    }
 
 }
