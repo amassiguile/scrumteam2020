@@ -17,11 +17,11 @@
         <input type="text" id="number" name="number"><br><br>
     </div>
     <BUTTON id="go" onclick="primeFactorsController();">Go</BUTTON>
-    <div  id="result">
+    <div  id="resultado">
         <p>
         <h3> The reult of the decomposition.: </h3>
         </p>
-        <p id="fresult">
+        <p id="result">
             <br><br>
         </p>
     </div>
@@ -41,9 +41,9 @@
                 i--;
             }
         }
-        //document.getElementById("fresult").innerHTML=primefactors;
+        document.getElementById("result").innerHTML=primefactors;
         //document.write(primefactors)
-        return document.body.appendChild(document.createTextNode(primefactors));
+        //return document.body.appendChild(document.createTextNode(primefactors));
 
 
     }
