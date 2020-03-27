@@ -68,7 +68,7 @@
         <button id="dock" onclick="showDockedShip()">dock</button>
     </div> </div><br><br><br>
 
-    <div id="info" STYLE="visibility: hidden;">
+    <div id="info" STYLE="visibility: hidden;" class="hidden">
         <p>The ship as been docked at gate 1p</p>
     </div>
 
@@ -79,6 +79,7 @@
         var ship = document.getElementById("ship").value;
         document.getElementById("ship-1").innerHTML = ship;
         document.getElementById("info").style.visibility= "visible";
+        document.getElementById("info").className = "";
         document.getElementById("gate-1").className = "occupied";
     }
 
