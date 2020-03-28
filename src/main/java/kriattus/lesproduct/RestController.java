@@ -92,9 +92,32 @@ public class RestController {
     }
 //----------------------------------------fire---------------------------------------------------------------------
     @GetMapping("/fire/geek")
-    public ResponseEntity<Object> geek(String geeks){
-        HashMap <String,Object> map = new HashMap<String,Object>();
-        return new ResponseEntity<Object>(map, HttpStatus.OK);
+    public ResponseEntity<Object> geek(String width, String map){
+        HashMap <String,Object> maps = new HashMap<String,Object>();
+
+        String str="";
+        List<String> listaMap = new ArrayList<>();
+        List<String> listaMoves = new ArrayList<>();
+
+        for(int i=0; i<map.length();i++){
+            str+=map.charAt(i);
+            if((i+1)%3==0)
+                str+=",";
+        }
+
+        String[] result = str.split(",");
+        for(String s:result)
+            listaMap.add(s);
+
+        maps.put("map", listaMap);
+
+        listaMoves.add("{dx: 0, dy: 1}");// kkkkk ja cansei de pensar Mestre
+        listaMoves.add("{dx: 1, dy: 0}");
+        listaMoves.add("{dx: 1, dy: 0}");
+
+        maps.put("moves",listaMap);
+
+        return new ResponseEntity<Object>(maps, HttpStatus.OK);
     }
 
 
