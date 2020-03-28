@@ -115,7 +115,7 @@ public class RestController {
         listaMoves.add("{dx: 1, dy: 0}");
         listaMoves.add("{dx: 1, dy: 0}");
 
-        maps.put("moves",listaMap);
+        maps.put("moves",listaMoves);
 
         return new ResponseEntity<Object>(maps, HttpStatus.OK);
     }
