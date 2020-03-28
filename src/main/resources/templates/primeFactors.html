@@ -20,6 +20,9 @@
                     }
                 }
                 var result = number+' = '+primefactors.join(' x ')
+                if(number>1000000){
+                    result='too big number (>1e6)';
+                }
 
                 $("#result").html( result);
             });
