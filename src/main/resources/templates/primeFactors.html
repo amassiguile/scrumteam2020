@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+
 </head>
 <body>
 <form >
@@ -17,16 +20,23 @@
         <input type="text" id="number" name="number"><br><br>
     </div>
     <BUTTON id="go" onclick="primeFactorsController();">Go</BUTTON>
-`   <div id="fresult">
+`   <p id="fresult">
+         <p>
+            <H3>The decomposition </H3>
+         </p>
         <p >
-            <input type="text" id="result" name="decomposition"><br><br>
+            <input type="text" id="result" name="decomposition" value=""/><br><br>
         </p>
     </div>
 
 </form>
+
+
 </body>
-<script type="text/javascript">
-    function primeFactorsController(){
+
+<script>
+    $("#go").click(function() {
+
         var number =document.getElementById("number").value;
         var primefactors=[];
         var copyOfInput = number;
@@ -38,11 +48,8 @@
             }
         }
         var result = number+' = '+primefactors.join(' x ')
-        //document.getElementById("result").innerHTML=result;
-        return  document.getElementById("result").value=result;
 
-    }
+        $('#result').val(result);
+    });
 </script>
-
-
 </html>
