@@ -26,6 +26,9 @@
                 if (/[a-zA-Z]/.test(number)) {
                     result=''+number+' is not a number ';
                 }
+                if(number<0){
+                    result=''+number+' is not an integer > 1';
+                }
 
                 $("#result").html( result);
             });
