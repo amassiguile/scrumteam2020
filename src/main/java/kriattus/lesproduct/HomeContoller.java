@@ -9,7 +9,7 @@ public class HomeContoller {
     @GetMapping("/")
     public ModelAndView index(){
         ModelAndView model = new ModelAndView("index");
-        model.addObject("message", "Hello Yose <a href=\"https://github.com/EdnilsonSarmento/LesMasters2020\" id=\"repository-link\">Github</a>");
+        model.addObject("message", "Hello Yose");
         return model;
     }
 
