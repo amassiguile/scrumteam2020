@@ -1,120 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Minesweeper</title>
-    <style>
-        BODY {
-            background: black;
-            color: #DDDDDD;
-            font-family: courier new;
-            text-align: center;
-        }
+    <meta charset="utf-8">
+    <title>JYose - Minesweeper</title>
 
-        H1 {
-            text-align: center;
-            font-size: 14pt;
-            font-weight: normal;
-        }
-        #grid {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #grid TR TD{
-            border:1px solid white;
-            background: #999999;
-            width: 16px;
-            height: 16px;
-            text-align: center;
-        }
-
-        #grid TR TD.clicked {
-            background: #333333;
-        }
-
-        #grid TR TD.mine {
-            background: #FF0000;
-        }
-
-        BUTTON {
-            margin: 12px;
-        }
-
-    </style>
+    <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
+    <link href="css/yose.css" rel="stylesheet">
+    <script type="text/javascript" src="js/minesweeper.js"></script>
+    <script type="text/javascript" src="js/polyfills/bind.js"></script>
 </head>
-
 <body>
-<H1 id="title">Minesweeper</H1>
-<table id=grid>
-</table>
-<BUTTON onclick="load();">Reset Grid</BUTTON>
+<div class="container">
+    <div class="content">
+        <h3 id="title">Minesweeper</h3>
 
-<script>
-    //Sarmento is building this. Follow me
-    var grid = document.getElementById("grid");
-    var testMode = false; //Turn this variable to true to see where the mines are
-    load();
-
-    function load() {
-        //generate 8 by 8 grid
-        grid.innerHTML="";
-        for (var i=0; i<8; i++) {
-            row = grid.insertRow(i);
-            for (var j=0; j<8; j++) {
-                cell = row.insertCell(j);
-                cell.id = "cell-"+(i+1)+"x"+(j+1);
-
-                cell.onclick = function() { clickCell(this); };
-
-                var mine = document.createAttribute("data-mine");
-                mine.value = "empty";
-
-                if((i==3 && j==4)||(i==2 && j==5))
-                    mine.value = "bomb";
-
-                cell.setAttributeNode(mine);
-            }
-        }
-        //addMines();
-    }
-
-    function addMines() {
-        //Add mines randomly
-        for (var i=0; i<16; i++) {
-            var row = Math.floor(Math.random() * 8);
-            var col = Math.floor(Math.random() * 8);
-            var cell = grid.rows[row].cells[col];
-            cell.setAttribute("data-mine","bomb");
-            //if (testMode) cell.innerHTML="X";
-        }
-    }
-
-    function clickCell(cell) {
-        //Check if the end-user clicked on a mine
-        if (cell.getAttribute("data-mine") === "bomb")
-            cell.className = "lost";
-
-        if (cell.getAttribute("data-mine") === "empty") {
-                cell.className = "safe";
-
-                var mineCount = 0;
-                var cellRow = cell.parentNode.rowIndex;
-                var cellCol = cell.cellIndex;
-                //alert(cellRow + " " + cellCol);
-                for (var i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 7); i++) {
-                    for (var j = Math.max(cellCol - 1, 0); j <= Math.min(cellCol + 1, 7); j++) {
-                        if (grid.rows[i].cells[j].getAttribute("data-mine") == "bomb")
-                            mineCount++;
-                    }
-                }
-                cell.innerHTML = mineCount;
-            }
-
-        }
-
-</script>
-
+        <form>
+            <label><input id="suspect-mode" type="checkbox"/>Flag suspects</label>
+        </form>
+        <table id="board">
+        </table>
+        <span id="test-mode">.</span>
+    </div>
+</div>
 </body>
-
 </html>
