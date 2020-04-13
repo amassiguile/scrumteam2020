@@ -18,7 +18,7 @@ minesweeper.Cell = function(row, col, content) {
     }
 
     function id(row, col) {
-        return 'cell-' + (row + 1) + 'x' + (col + 1);
+        return 'cell-' + (row) + 'x' + (col);
     }
 
     this.onClick = function(handler) {
