@@ -21,15 +21,15 @@
                         var item = document.createElement('li');
                         item.appendChild(document.createTextNode(results[n]));
 
-                        // Add it to the list:
+
                         lista.appendChild(item);
-                        //$("#results").html(results[n]);
+
                     }
 
                 }else {
                    var result = decomp(number);
                     $("#result").html( result);
-                    $("#last-decomposition").html( result);
+
                 }
 
 
@@ -87,17 +87,12 @@
     </p>
 </div>
 <p id="result">
-    <!--input type="text" id="result" name="decomposition" class="disable" value=" "-->
+
 </p>
 <div>
     <ol id="results"></ol>
 </div>
-<div>
-    <p id="last-decomposition">
 
-    </p>
-
-</div>
 
 
 </body>
